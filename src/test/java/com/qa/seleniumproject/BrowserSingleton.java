@@ -1,13 +1,19 @@
 package com.qa.seleniumproject;
 
+import java.time.Duration;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 // Singleton design Pattern used in selenium project for driver instantiation.
 public class BrowserSingleton {
     // 1. private static instance of class - volatile to give the threads proper copy of data
     private volatile static WebDriver driver;
+    private static WebDriverWait wait;
 
     // 2. private static constructor to prevent instantiation of the object
     private BrowserSingleton() {
@@ -27,11 +33,21 @@ public class BrowserSingleton {
                     driver = new FirefoxDriver();
                 }
 
+                //initialize wait
+                wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             }
 
         }
 
         return driver;
+    }
+
+    public static void waitUnitElementVisible(By locator) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public static void waitUntilElementClickable(By locator) {
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     // Method to close the WebDriver
