@@ -16,7 +16,13 @@ public class LoginWebsite {
     
     @Test
     public void testOpenWebsite() {
-        driver.get("https://google.com");
+        driver.get("https://www.example.com");
+
+        System.out.println("Page Title: " + driver.getTitle());
+
+        // maximize the window
+        driver.manage().window().maximize();
+        System.out.println("Page current url: " + driver.getCurrentUrl()); 
     }
 
     @Test
