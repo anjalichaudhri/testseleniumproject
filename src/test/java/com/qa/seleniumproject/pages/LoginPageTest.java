@@ -1,4 +1,4 @@
-package com.qa.seleniumproject;
+package com.qa.seleniumproject.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -6,7 +6,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginWebsite {
+import com.qa.seleniumproject.base.BrowserSingleton;
+
+public class LoginPageTest {
     private WebDriver driver;
 
     @BeforeMethod

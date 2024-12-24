@@ -1,4 +1,4 @@
-package com.qa.seleniumproject;
+package com.qa.seleniumproject.base;
 
 import java.time.Duration;
 
