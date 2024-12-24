@@ -15,8 +15,10 @@ public class HomePageTest {
     @BeforeMethod
     public void setup() {
         String browser = ConfigReader.getProperty("browser");
-        String baseUrl = ConfigReader.getProperty("baseUrl");
+        String baseUrl = ConfigReader.getProperty("baseURL");
 
+        System.out.println(browser);
+        System.out.println(baseUrl);
         driver = BrowserFactory.getFactoryDriver(browser);
         driver.get(baseUrl);
     }
@@ -24,6 +26,7 @@ public class HomePageTest {
     @Test
     public void validateHomePageTitle() {
         String expectedTitle = "Example - Home";
+        
         String actualTitle = driver.getTitle();
         assert actualTitle.equals(expectedTitle) : "Title mismatch! Expected: " + expectedTitle + ", but got: " + actualTitle;
     }

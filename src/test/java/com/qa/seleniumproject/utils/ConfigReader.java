@@ -12,7 +12,7 @@ public class ConfigReader {
     // System.out.println(currentDirectory);
     // make the file path dynamic instead of static path.
     private static String configFilePath = currentDirectory
-            + "/testseleniumproject/src/test/java/com/qa/seleniumproject/resourses/browserConfig.properties";
+            + "/src/test/java/com/qa/seleniumproject/resourses/browserConfig.properties";
 
     static {
         try {
