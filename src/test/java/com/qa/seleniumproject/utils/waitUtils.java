@@ -9,17 +9,20 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 // Apply Explicit waits - create reusable functions for wait - to make the code more cleaner and maintainable 
-public class waitUtils {
+public class WaitUtils {
     @SuppressWarnings("unused")
     private WebDriver driver;
     private WebDriverWait wait;
 
-    public waitUtils(WebDriver driver, int timeoutInSeconds) {
+    public WaitUtils(WebDriver driver, int timeoutInSeconds) {
+        // create driver
         this.driver = driver;
+        // create webdriver wait and pass driver and explicitely mentioned time 
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void waitForTitle(String expectedTitle) {
+        // use wait variable to pass expected conditions to test.
         wait.until(ExpectedConditions.titleIs(expectedTitle));
     }
 
