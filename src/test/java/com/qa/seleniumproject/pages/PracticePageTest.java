@@ -11,10 +11,14 @@ import org.testng.annotations.Test;
 import com.qa.seleniumproject.base.BrowserFactory;
 import com.qa.seleniumproject.utils.ConfigReader;
 import com.qa.seleniumproject.utils.DropdownUtils;
+import com.qa.seleniumproject.utils.LocatorUtils;
+import com.qa.seleniumproject.utils.CheckboxUtils;
 
 public class PracticePageTest {
     WebDriver driver;
     DropdownUtils dropdownUtils;
+    CheckboxUtils checkboxUtils;
+    LocatorUtils locatorUtils;
 
     @BeforeMethod
     public void setup() {
@@ -26,6 +30,8 @@ public class PracticePageTest {
         driver = BrowserFactory.getFactoryDriver(browser);
         driver.get(demoWebsiteUrl);
         dropdownUtils = new DropdownUtils(driver);
+        checkboxUtils = new CheckboxUtils(driver);
+        locatorUtils = new LocatorUtils(driver);
     }
 
     @Test
@@ -53,6 +59,26 @@ public class PracticePageTest {
         String dropdownValue = selectedOption.getDomAttribute("value");
         Assert.assertEquals("option1", dropdownValue); // Assuming "option1" is the value attribute
     }
+
+    @Test
+    public void testCheckboxSelection() {
+        By checkboxLocator = By.id("checkbox1"); // Replace with your locator
+
+        checkboxUtils.selectCheckbox(checkboxLocator);
+        Assert.assertTrue(checkboxUtils.isCheckboxSelected(checkboxLocator));
+    }
+
+    @Test
+    public void testDeSelectCheckbox() {
+        By checkboxLocator = locatorUtils.findElementByIdLocator("checkBoxOption1");
+        By checkboxLocator1 = locatorUtils.findElementByNameLocator("checkBoxOption1");
+        By checkboxLocator2 = locatorUtils.findElementByCSS("input[id='checkBoxOption1'][value='option1'][name='checkBoxOption1']");
+        By checkboxLocator3 = locatorUtils.findElementByXpath("//input[@id='checkBoxOption1'][@name='checkBoxOption1'][@name='checkBoxOption1']");
+
+        checkboxUtils.deselectCheckbox(checkboxLocator);
+
+        Assert.assertFalse(checkboxUtils.isCheckboxSelected(checkboxLocator));
+    }    
 
     @AfterMethod
     public void tearDown() {
