@@ -77,9 +77,9 @@ public class PracticePageTest {
         By checkboxLocator = locatorUtils.findElementByIdLocator("checkBoxOption1");
         By checkboxLocator1 = locatorUtils.findElementByNameLocator("checkBoxOption1");
         By checkboxLocator2 = locatorUtils
-                .findElementByCSS("input[id='checkBoxOption1'][value='option1'][name='checkBoxOption1']");
+                .findElementByCSS("input[id='checkBoxOption2'][value='option2'][name='checkBoxOption2']");
         By checkboxLocator3 = locatorUtils
-                .findElementByXpath("//input[@id='checkBoxOption1'][@name='checkBoxOption1'][@name='checkBoxOption1']");
+                .findElementByXpath("//input[@id='checkBoxOption3'][@name='checkBoxOption3'][@name='checkBoxOption3']");
         
         checkboxUtils.deselectCheckbox(checkboxLocator);
 
@@ -93,10 +93,12 @@ public class PracticePageTest {
 
         clickableElement.click();
 
-        Assert.assertTrue(checkboxUtils.isCheckboxSelected(checkboxLocator));
+        Assert.assertTrue(checkboxUtils.isCheckboxSelected(checkboxLocator2));
 
         // Waiting for a dynamic element to disappear
         boolean isElementInvisible = dynamicElementUtils.waitForElementToDisappear(By.id("checkBoxOption3"), 10);
+        Assert.assertFalse(checkboxUtils.isCheckboxSelected(checkboxLocator3));
+
     }
 
     @AfterMethod
