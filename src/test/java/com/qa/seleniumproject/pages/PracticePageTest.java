@@ -88,6 +88,7 @@ public class PracticePageTest {
         // Waiting for a dynamic element to become visible
         WebElement dynamicElement = dynamicElementUtils.waitForElementToBeVisible(By.id("checkBoxOption2"), 10);
 
+        dynamicElement.click();
         // Waiting for a dynamic element to be clickable
         WebElement clickableElement = dynamicElementUtils.waitForElementToBeClickable(By.id("checkBoxOption2"), 10);
 
@@ -97,8 +98,9 @@ public class PracticePageTest {
 
         // Waiting for a dynamic element to disappear
         boolean isElementInvisible = dynamicElementUtils.waitForElementToDisappear(By.id("checkBoxOption3"), 10);
+        Assert.assertFalse(isElementInvisible);
         Assert.assertFalse(checkboxUtils.isCheckboxSelected(checkboxLocator3));
-
+        Assert.assertFalse(checkboxUtils.isCheckboxSelected(checkboxLocator1));
     }
 
     @AfterMethod
