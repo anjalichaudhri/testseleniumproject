@@ -39,6 +39,14 @@ Explicit Wait.
 Fluent Wait.
 Frames and Windows:
 Handling frames (switchTo.frame).
+    Frames are used to embed an HTML document within another HTML document. Selenium requires switching to a frame before interacting with elements inside it.
+
+    Methods
+    switchTo().frame(index): Switches to a frame by its index (0-based).
+    switchTo().frame(nameOrId): Switches to a frame by its name or ID attribute.
+    switchTo().frame(WebElement frameElement): Switches to a frame using a WebElement reference.
+    switchTo().defaultContent(): Switches back to the main (default) content.
+    
 Handling multiple windows/tabs.
 5. JavaScript and Alerts
 Executing JavaScript in Selenium:
