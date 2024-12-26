@@ -1,4 +1,4 @@
-This is maven web automation project using selenium webdriver, covering the topics:
+This is maven web automation project using selenium webdriver using VSCode(install java jdk and maven extensions), covering the topics:
 
 Selenium is a popular open-source automation framework used primarily for testing web applications. Below is a topic-wise breakdown of Selenium concepts and features:
 
