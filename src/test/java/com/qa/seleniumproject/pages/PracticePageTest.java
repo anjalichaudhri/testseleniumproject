@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import com.qa.seleniumproject.base.BrowserFactory;
 import com.qa.seleniumproject.utils.ConfigReader;
 import com.qa.seleniumproject.utils.DropdownUtils;
+import com.qa.seleniumproject.utils.DynamicElementUtils;
 import com.qa.seleniumproject.utils.LocatorUtils;
 import com.qa.seleniumproject.utils.CheckboxUtils;
 
@@ -19,6 +20,7 @@ public class PracticePageTest {
     DropdownUtils dropdownUtils;
     CheckboxUtils checkboxUtils;
     LocatorUtils locatorUtils;
+    DynamicElementUtils dynamicElementUtils;
 
     @BeforeMethod
     public void setup() {
@@ -32,6 +34,7 @@ public class PracticePageTest {
         dropdownUtils = new DropdownUtils(driver);
         checkboxUtils = new CheckboxUtils(driver);
         locatorUtils = new LocatorUtils(driver);
+        dynamicElementUtils = new DynamicElementUtils(driver);
     }
 
     @Test
@@ -40,7 +43,8 @@ public class PracticePageTest {
         // waitUtils.waitForTitle("Example Domain");
 
         String actualTitle = driver.getTitle();
-        assert actualTitle.equals(expectedTitle) : "Title mismatch! Expected: " + expectedTitle + ", but got: " + actualTitle;
+        assert actualTitle.equals(expectedTitle)
+                : "Title mismatch! Expected: " + expectedTitle + ", but got: " + actualTitle;
     }
 
     @Test
@@ -72,13 +76,28 @@ public class PracticePageTest {
     public void testDeSelectCheckbox() {
         By checkboxLocator = locatorUtils.findElementByIdLocator("checkBoxOption1");
         By checkboxLocator1 = locatorUtils.findElementByNameLocator("checkBoxOption1");
-        By checkboxLocator2 = locatorUtils.findElementByCSS("input[id='checkBoxOption1'][value='option1'][name='checkBoxOption1']");
-        By checkboxLocator3 = locatorUtils.findElementByXpath("//input[@id='checkBoxOption1'][@name='checkBoxOption1'][@name='checkBoxOption1']");
-
+        By checkboxLocator2 = locatorUtils
+                .findElementByCSS("input[id='checkBoxOption1'][value='option1'][name='checkBoxOption1']");
+        By checkboxLocator3 = locatorUtils
+                .findElementByXpath("//input[@id='checkBoxOption1'][@name='checkBoxOption1'][@name='checkBoxOption1']");
+        
         checkboxUtils.deselectCheckbox(checkboxLocator);
 
         Assert.assertFalse(checkboxUtils.isCheckboxSelected(checkboxLocator));
-    }    
+
+        // Waiting for a dynamic element to become visible
+        WebElement dynamicElement = dynamicElementUtils.waitForElementToBeVisible(By.id("checkBoxOption2"), 10);
+
+        // Waiting for a dynamic element to be clickable
+        WebElement clickableElement = dynamicElementUtils.waitForElementToBeClickable(By.id("checkBoxOption2"), 10);
+
+        clickableElement.click();
+
+        Assert.assertTrue(checkboxUtils.isCheckboxSelected(checkboxLocator));
+
+        // Waiting for a dynamic element to disappear
+        boolean isElementInvisible = dynamicElementUtils.waitForElementToDisappear(By.id("checkBoxOption3"), 10);
+    }
 
     @AfterMethod
     public void tearDown() {
