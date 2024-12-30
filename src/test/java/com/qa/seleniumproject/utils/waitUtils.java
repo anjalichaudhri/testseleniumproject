@@ -2,8 +2,10 @@ package com.qa.seleniumproject.utils;
 
 import java.time.Duration;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -36,6 +38,12 @@ public class WaitUtils {
 
     public void waitForElementToBePresent(By locator) {
         wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
+
+    // Please take a reference to this method to modify others
+    public Alert waitForAlertToBePresent() {
+
+        return wait.until(ExpectedConditions.alertIsPresent());
     }
 
     /**

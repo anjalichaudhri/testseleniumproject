@@ -13,6 +13,7 @@ import com.qa.seleniumproject.base.BrowserFactory;
 import com.qa.seleniumproject.utils.AlertUtils;
 import com.qa.seleniumproject.utils.ConfigReader;
 import com.qa.seleniumproject.utils.DynamicElementUtils;
+import com.qa.seleniumproject.utils.WaitUtils;
 
 // NOTE:- need to add scrolling till the element visible code, to make them work
 
@@ -74,6 +75,18 @@ public class AlertHandlingPageTest {
 
         //Assert alert text
         Assert.assertEquals(alertText, expectedAlertText);
+    }
+
+    @Test
+    public void TimedAlertsTest() {
+        WebElement timedAlertButtton = driver.findElement(By.id("timerAlertButton"));
+        timedAlertButtton.click();
+
+        String alertText = alertUtils.handleTimerAlert();
+        String expectedAlert = "This alert appeared after 5 seconds";
+
+        // Assert timer alert text
+        Assert.assertEquals(alertText, expectedAlert);
     }
 
     @AfterMethod
