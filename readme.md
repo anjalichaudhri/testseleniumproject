@@ -53,6 +53,16 @@ Executing JavaScript in Selenium:
 JavascriptExecutor.
 Handling Alerts:
 Simple, Confirmation, and Prompt alerts.
+    Types of Alerts--
+        Simple Alert: A basic alert with an OK button.
+        Confirmation Alert: An alert with OK and Cancel buttons.
+        Prompt Alert: An alert that allows the user to input text.
+    Methods to Handle Alerts--
+            switchTo().alert(): Switches to the alert.
+            alert.accept(): Clicks the OK button.
+            alert.dismiss(): Clicks the Cancel button.
+            alert.getText(): Retrieves the text from the alert.
+            alert.sendKeys(text): Enters text into a prompt alert.
 6. Actions Class
 Mouse Actions:
 Mouse hover.

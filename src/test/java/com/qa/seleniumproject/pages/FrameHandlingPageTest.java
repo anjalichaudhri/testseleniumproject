@@ -21,7 +21,7 @@ public class FrameHandlingPageTest {
     @BeforeMethod
     public void setup() {
         String browser = ConfigReader.getProperty("browser");
-        String demoWebsiteUrl = ConfigReader.getProperty("demoQAWebsiteUrl");
+        String demoWebsiteUrl = ConfigReader.getProperty("demoQAWebsiteFrameUrl");
 
         System.out.println(browser);
         System.out.println(demoWebsiteUrl);
