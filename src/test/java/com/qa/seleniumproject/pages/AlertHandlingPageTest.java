@@ -3,7 +3,7 @@ package com.qa.seleniumproject.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WebDriver.Window;
+// import org.openqa.selenium.WebDriver.Window;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -13,7 +13,7 @@ import com.qa.seleniumproject.base.BrowserFactory;
 import com.qa.seleniumproject.utils.AlertUtils;
 import com.qa.seleniumproject.utils.ConfigReader;
 import com.qa.seleniumproject.utils.DynamicElementUtils;
-import com.qa.seleniumproject.utils.WaitUtils;
+// import com.qa.seleniumproject.utils.WaitUtils;
 
 // NOTE:- need to add scrolling till the element visible code, to make them work
 

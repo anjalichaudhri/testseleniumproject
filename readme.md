@@ -68,8 +68,25 @@ Mouse Actions:
 Mouse hover.
 Right-click (contextClick).
 Drag and drop.
-Keyboard Actions:
-Sending special keys.
+Keyboard Actions: Sending special keys.
+    
+    Mouse Hover:
+
+        URL: https://demoqa.com/tool-tips
+        Hover over the "Hover me to see" button.
+        Right-Click:
+
+        URL: https://demoqa.com/buttons
+        Right-click on the "Right Click Me" button.
+        Drag-and-Drop:
+
+        URL: https://demoqa.com/droppable
+        Drag the draggable element to the droppable target.
+        Keyboard Actions:
+
+        URL: https://demoqa.com/text-box
+        Send keys to the text box and press Enter.
+        
 7. File Handling
 Uploading files (SendKeys).
 Downloading files using browser settings.
