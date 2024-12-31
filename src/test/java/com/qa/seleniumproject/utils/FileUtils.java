@@ -63,6 +63,7 @@ public class FileUtils {
         }
     }
 
+    // Before using this method always check for the pre-existing file with same name.
     public void downloadFile(String downloadFileName, String downloadDir){
         try {
             // Trigger file download by clicking the download link

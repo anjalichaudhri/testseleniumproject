@@ -93,6 +93,19 @@ Downloading files using browser settings.
 8. Handling Web Tables
 Reading data from static and dynamic web tables.
 Locating rows and columns using XPath/CSS.
+    Key Concepts:-----
+        Static Web Table:
+
+            A table where the data does not change dynamically.
+            Example URL: Herokuapp - Web Tables.
+        Dynamic Web Table:
+
+            A table where data is fetched dynamically (e.g., via AJAX or real-time updates).
+            Use similar methods but ensure proper synchronization (e.g., WebDriverWait).
+        XPath/CSS Selectors:
+
+            XPath: .//tr[row]/td[col] for locating specific cells.
+            CSS Selector: Use nth-child selectors for simpler tables.
 9. Selenium Grid
 Purpose:
 Distributed test execution.
