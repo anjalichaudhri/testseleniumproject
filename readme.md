@@ -114,11 +114,33 @@ Hub and Node configuration.
 Execution:
 Running tests on different browsers and operating systems.
 10. Page Object Model (POM)
-Concept:
-Maintaining object repository and test scripts separately.
-Implementation:
-Creating page classes.
-Using Page Factory.
+    Concept:
+        Maintaining object repository and test scripts separately.
+        Implementation:
+        Creating page classes.
+        Using Page Factory.
+    Page Object Model (POM) with Page Factory in Selenium
+        The Page Object Model (POM) is a design pattern used to maintain object repositories and test scripts separately, improving code readability, reusability, and maintainability. Below is an implementation with examples:
+
+        1. Concept
+            Benefits of POM:
+                Separation of Concerns: Object repository (web element locators) is maintained separately from test logic.
+                Reusability: Page classes can be reused across multiple test scripts.
+                Maintainability: Changes in the UI only require updates to the page classes, not the test scripts.
+            Using Page Factory:
+                Page Factory simplifies the initialization of web elements using annotations like @FindBy.
+        2. Project Structure
+            src
+            └── main
+                └── java
+                    ├── pages
+                    │   ├── LoginPage.java
+                    │   ├── DashboardPage.java
+                    │   └── BasePage.java
+                    └── tests
+                        ├── LoginTest.java
+                        └── BaseTest.java
+
 11. Frameworks with Selenium
 TestNG/JUnit:
 Annotations, Assertions, Parameterization.
