@@ -140,6 +140,35 @@ Running tests on different browsers and operating systems.
                     └── tests
                         ├── LoginTest.java
                         └── BaseTest.java
+        2.1 Project Structure: example
+                POMProject
+                    ├── src
+                    │   ├── main
+                    │   │   ├── java
+                    │   │   │   ├── pages
+                    │   │   │   │   ├── BasePage.java
+                    │   │   │   │   ├── FileHandlingPage.java
+                    │   │   │   │   └── DashboardPage.java
+                    │   │   │   ├── utils
+                    │   │   │   │   ├── WebDriverUtils.java
+                    │   │   │   │   └── ConfigReader.java
+                    │   │   │   └── base
+                    │   │   │       └── BaseTest.java
+                    │   │   └── resources
+                    │   │       ├── config.properties
+                    │   │       └── log4j2.xml
+                    │   ├── test
+                    │   │   ├── java
+                    │   │   │   └── tests
+                    │   │   │       ├── FileHandlingPageTest.java
+                    │   │   │       └── DashboardTest.java
+                    │   │   └── resources
+                    │   │       └── testdata
+                    │   │           └── testdata.xlsx
+                    ├── .gitignore
+                    ├── pom.xml
+                    └── README.md
+
 
 11. Frameworks with Selenium
 TestNG/JUnit:

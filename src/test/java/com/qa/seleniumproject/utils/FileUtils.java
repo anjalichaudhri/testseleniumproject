@@ -25,9 +25,8 @@ public class FileUtils {
      * @param locator The locator of the file input element.
      * @param filePath The absolute path of the file to upload.
      */
-    public void uploadFile(By locator, String filePath) {
-        WebElement fileInput = driver.findElement(locator);
-        fileInput.sendKeys(filePath);
+    public void uploadFile(WebElement webElement, String filePath) {
+        webElement.sendKeys(filePath);
     }
 
     /**

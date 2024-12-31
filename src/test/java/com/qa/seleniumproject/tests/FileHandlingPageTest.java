@@ -8,12 +8,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.qa.seleniumproject.base.BrowserFactory;
+import com.qa.seleniumproject.pages.FileHandlingPage;
 import com.qa.seleniumproject.utils.ConfigReader;
 import com.qa.seleniumproject.utils.FileUtils;
 
 public class FileHandlingPageTest {
     WebDriver driver;
     FileUtils fileUtils;
+    FileHandlingPage fileHandlingPage;
 
     String downloadDir = System.getProperty("user.dir") + "\\src\\test\\java\\com\\qa\\seleniumproject\\resourses\\download";
     String downloadFileName = "bb.txt";
@@ -27,6 +29,7 @@ public class FileHandlingPageTest {
         // Configure ChromeOptions for file download
         ChromeOptions chromeOptions= FileUtils.configureChromeDownload(downloadDir);
         driver = BrowserFactory.getFactoryDriver(browser, chromeOptions); // driver instantiation.
+        fileHandlingPage = new FileHandlingPage(driver);
         
         // instantiate file utils
         fileUtils = new FileUtils(driver);
@@ -43,11 +46,16 @@ public class FileHandlingPageTest {
                 + "\\src\\test\\java\\com\\qa\\seleniumproject\\resourses\\upload\\myFile.txt";
         System.out.println("Current Directory: " + uploadFilePath);
 
-        fileUtils.uploadFile(By.id("file-upload"), uploadFilePath);
-        driver.findElement(By.id("file-submit")).click();
+        WebElement fileInputElement = fileHandlingPage.getFileInputElement();
+
+        fileUtils.uploadFile(fileInputElement, uploadFilePath);
+
+        // POM usage
+        fileHandlingPage.clickFileSubmitButton();
 
         // Validate upload success
-        WebElement uploadedFile = driver.findElement(By.id("uploaded-files"));
+        WebElement uploadedFile = fileHandlingPage.getFileUploadVerificationElement();
+        
         if (uploadedFile.getText().equals("myFile.txt")) {
             System.out.println("File upload successful.");
         } else {
