@@ -245,4 +245,5 @@ Design patterns: https://chatgpt.com/share/679b6487-2a7c-800f-9935-fd5ea565a249
 Factory design patterns: https://chatgpt.com/share/679b646e-354c-800f-b4f1-e7964cf2b668
 singleton design patterns: https://chatgpt.com/share/679b6059-591c-800f-b0df-faf1e134b67d
 references: https://chatgpt.com/share/679b647d-4788-800f-9fcd-3e7e37b7e28c
-
+Create mvn project in vs code: https://chatgpt.com/share/679b65cf-711c-800f-acf5-b990437cb862
+selenium waits: https://chatgpt.com/share/679b6605-0058-800f-97ec-05de1bf1c61f
