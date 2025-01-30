@@ -238,3 +238,7 @@ MultiBrowserAutomation
     ├── screenshots                               # Screenshots for failed tests
     ├── allure-results                            # Allure reports
     └── extent-reports                            # Extent reports
+
+Link references: https://chatgpt.com/share/679b5f53-dc14-800f-87d5-249955f20504
+Best Link references: https://chatgpt.com/share/679b6059-591c-800f-b0df-faf1e134b67d
+
